@@ -1,19 +1,16 @@
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
-        # 单调栈
-        heights.append(0)
-        stack = [0]
-        area = 0
-        for i in range(1, len(heights)):
-            if heights[i] >= heights[stack[-1]]:  # 当前元素大于栈顶元素 则当前元素的索引入栈
-                stack.append(i)
-            else:
-                while stack and heights[i] < heights[stack[-1]]:
-                    # 栈非空 且 当前元素小于栈顶元素 弹出栈顶元素(索引) 此时计算以该元素(索引)的高为高的最大矩形
-                    x = stack.pop(-1)
-                    if len(stack) != 0:
-                        area = max(area, heights[x] * (i - stack[-1] - 1))
-                    else:
-                        area = max(area, heights[x] * i)
-                stack.append(i)
-        return area
+        n = len(heights)
+        left, right = [0] * n, [n] * n  # left,right: 元素的左右边界
+
+        stack = list()  # 待维护的栈
+        for i in range(n):
+            while stack and heights[stack[-1]] >= heights[i]:  # 如果维护的栈不为空 且 当前元素的值<=栈顶元素的值
+                right[stack[-1]] = i  # 保存当前元素的索引为栈顶元素的右边界
+                stack.pop()  # 弹出栈顶元素 下一个元素变成栈顶元素了
+            # 如果栈不为空:当前元素的左边界为栈顶元素; 如果栈为空:左边界为-1
+            left[i] = stack[-1] if stack else -1
+            stack.append(i)  # 索引入栈
+        # 面积 = 当前元素高度 * (当前元素右边界-当前元素左边界-offset)
+        ans = max((right[i] - left[i] - 1) * heights[i] for i in range(n)) if n > 0 else 0
+        return ans
