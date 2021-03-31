@@ -7,7 +7,8 @@ class Solution:
         换的单词，复杂度是 O(26*wordLen)，借助哈希表，找到邻居与N无关；
         使用 BFS 进行遍历，需要的辅助数据结构是：
         队列；
-        visited 集合。说明：可以直接在 wordSet (由 wordList 放进集合中得到)里做删除。但更好的做法是新开一个哈希         表，遍历过的字符串放进哈希表visited里。该做法具有普遍意义。绝大多数在线测评系统和应用场景都不会在意空间开销。
+        visited 集合。说明：可以直接在 wordSet (由 wordList 放进集合中得到)里做删除。但更好的做法是新开一个哈希表，
+        遍历过的字符串放进哈希表visited里。该做法具有普遍意义。绝大多数在线测评系统和应用场景都不会在意空间开销。
         """
         from collections import deque
         word_set = set(wordList)  # 先建立包含列表里所有词的哈希表
