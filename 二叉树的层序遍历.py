@@ -36,7 +36,7 @@ class Solution(object):
         if len(res) == level:  # res里有几个列表就代表有几层(多少深度)
             res.append([])
         res[level].append(root.val)  # 根节点存放到第0层
-        if root.left:  # 如果左孩子有值 递归对左孩子做同样处理 层数+1
+        if root.left:  # 如果左孩子有值 递归对左孩子做同样处理 层数+1(存到res的下一个列表里)
             self.level(root.left, level + 1, res)
-        if root.right:  # 如果右孩子有值 递归对右孩子做同样处理 层数+1
+        if root.right:  # 如果右孩子有值 递归对右孩子做同样处理 层数+1(存到res的下一个列表里)
             self.level(root.right, level + 1, res)
