@@ -38,3 +38,22 @@ class Solution:
             for i in res:
                 board.append("." * i + "Q" + "." * (n - i - 1))
         return [board[i:i + n] for i in range(0, len(board), n)]
+
+
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        def dfs(queens, xy_dif, xy_sum):
+            # 传3个参数 每一行的第几列是皇后 该皇后位置的行号与列号之和 之差 分别代表撇和捺的位置
+            p = len(queens)  # 行号
+            if p == n:
+                result.append(queens)
+                return
+            for q in range(n):  # 列号
+                # 对于每一行的列号进行循环 如果该列号不在三个参数里 就更新三个参数 该位置可以放一个皇后
+                if q not in queens and p - q not in xy_dif and p + q not in xy_sum:
+                    dfs(queens + [q], xy_dif + [p - q], xy_sum + [p + q])
+
+        result = []
+        dfs([], [], [])
+        # result里放的依次是每一行皇后所在列 对于答案里的每一个列号 前面放点 后面放点 本身放Q
+        return [["." * i + "Q" + "." * (n - i - 1) for i in sol] for sol in result]
