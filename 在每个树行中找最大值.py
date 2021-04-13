@@ -8,7 +8,7 @@ class Solution:
     def largestValues(self, root: TreeNode) -> List[int]:
         # 用队列queue实现一个BFS
         if root is None:
-            return []
+            return None
         queue = [root]  # 把root初始化放到队列里
         res = []  # res存储最终结果
         while queue:
