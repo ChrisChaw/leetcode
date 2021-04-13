@@ -11,7 +11,7 @@ class Solution:
         dp = [1 for _ in range(length)]
         for i in range(1, length):
             for j in range(0, i):
-                if nums[j] < nums[i]:  # 前面的数<后面的数 状态转移方程:dp[i] = max(dp[i], dp[j] + 1)
+                if nums[j] < nums[i]:  # 前面的数nums[j]<后面的数nums[i] 状态转移方程:dp[i] = max(dp[i], dp[j] + 1)
                     dp[i] = max(dp[i], dp[j] + 1)
         res = 0
         for i in range(length):
