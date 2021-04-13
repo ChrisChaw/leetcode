@@ -8,7 +8,7 @@ class Solution:  # 二分查找 时间复杂度：O(lgn)
             if (nums[0] <= nums[mid] and (nums[mid] < target or nums[0] > target)):
                 low = mid + 1
             # 当nums[0]>nums[mid]时 说明[0, mid]发生了旋转，向后规约条件
-            elif target > nums[mid] and target < nums[0]:
+            elif nums[mid] < target < nums[0]:
                 low = mid + 1
             # 当向前规约时
             else:
