@@ -1,8 +1,9 @@
 class Solution:
     """
     时间复杂度：O(N^2)
-    空间复杂度：O(N)
+    空间复杂度：O(N) 最长递增子序列 可以不连续
     """
+
     def lengthOfLIS(self, nums: List[int]) -> int:
         length = len(nums)
         if length < 2:
