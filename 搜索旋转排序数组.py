@@ -14,6 +14,6 @@ class Solution:  # 二分查找 时间复杂度：O(lgn)
             else:
                 high = mid
         if low == high and nums[low] == target:
-            return nums.index(target)
+            return low
         else:
             return -1
