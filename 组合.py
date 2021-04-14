@@ -11,12 +11,12 @@ class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
         res = []
 
-        def backtrace(i, tmp):
+        def backtrace(i, tmp):  # tmp是暂存列表
             if len(tmp) == k:
                 res.append(tmp)
                 return
             for j in range(i, n + 1):
-                backtrace(j + 1, tmp + [j])
+                backtrace(j + 1, tmp + [j])  # 将j增大1，且暂存列表tmp加入数字j
 
         backtrace(1, [])
         return res
