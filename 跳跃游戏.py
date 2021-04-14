@@ -7,6 +7,6 @@ class Solution:
         endReachable = len(nums) - 1
         for i in range(len(nums) - 1, -1, -1):
             # 如果第i处位置+最多跳的距离 >= 最后位置处 表示第i处能跳到最后位置
-            if nums[i] + i >= endReachable:
+            if i + nums[i] >= endReachable:
                 endReachable = i  # 表示第i处能跳到最后位置 endReachable更新为i
         return endReachable == 0  # 第0处索引位置能跳到最后位置
