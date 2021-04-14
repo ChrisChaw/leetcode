@@ -6,8 +6,8 @@ class Solution:
         if len(p) >= 2 and p[1] == '*':
             # 发现'*'通配符
             # 如果发现有字符和'*'结合
-            # 或者匹配该字符0次，然后跳过该字符和'*'
-            # 或者当p[0]和s[0]匹配后，移动text
+            # 或者匹配该字符0次，然后跳过该字符(p[0])和跳过'*':self.isMatch(s, p[2:])
+            # 或者当p[0]和s[0]匹配后，移动text: first_match and self.isMatch(s[1:], p)
             return self.isMatch(s, p[2:]) or first_match and self.isMatch(s[1:], p)
         else:
             return first_match and self.isMatch(s[1:], p[1:])
@@ -31,6 +31,3 @@ class Solution:
             return ans
 
         return dp(0, 0)
-
-
-
