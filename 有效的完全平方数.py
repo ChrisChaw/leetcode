@@ -6,13 +6,13 @@ class Solution:
         left, right = 2, num // 2
 
         while left <= right:
-            x = (right + left) // 2
-            guess_squared = x * x
+            mid = (right + left) // 2
+            guess_squared = mid * mid
             if guess_squared == num:
                 return True
             if guess_squared > num:
-                right = x - 1
+                right = mid - 1
             else:
-                left = x + 1
+                left = mid + 1
 
         return False
