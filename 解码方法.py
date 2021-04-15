@@ -11,7 +11,7 @@ class Solution:
                 return 0
             if s[i - 2:i] in ['10', '20']:  # 只有组合在一起才能解码
                 dp[i] = dp[i - 2]
-            elif '10' < s[i - 2:i] <= '26':  # 两种解码方式:单独解码dp[i]=dp[i-1]; 组合解码dp[i]=dp[i-2]
+            elif '11' <= s[i - 2:i] <= '26':  # 两种解码方式:单独解码dp[i]=dp[i-1]; 组合解码dp[i]=dp[i-2]
                 dp[i] = dp[i - 1] + dp[i - 2]
             else:  # '01'到 ‘09’ 或 > '26'，只有单独才能解码
                 dp[i] = dp[i - 1]
