@@ -4,10 +4,10 @@ def calcu(P, G):
     parea = (pxmax - pxmin) * (pymax - pymin)
     garea = (gxmax - gxmin) * (gymax - gymin)
 
-    xmin = max(pxmin, gxmin)  # 左下顶点的横坐标
-    ymin = max(pymin, gymax)  # 左下顶点的纵坐标
-    xmax = min(pxmax, gxmax)  # 右上顶点的横坐标
-    ymax = min(pymax, gymax)  # 右上顶点的纵坐标
+    xmin = max(pxmin, gxmin)  # 相交矩形的左下顶点的横坐标
+    ymin = max(pymin, gymax)  # 相交矩形的左下顶点的纵坐标
+    xmax = min(pxmax, gxmax)  # 相交矩形的右上顶点的横坐标
+    ymax = min(pymax, gymax)  # 相交矩形的右上顶点的纵坐标
 
     # 计算相交矩形的面积
     w = xmax - xmin
