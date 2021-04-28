@@ -10,7 +10,7 @@ class Solution:
         if not words:
             return []
         self.result = set()
-
+        import collections
         # 构建trie 并把单词insert到trie里
         root = collections.defaultdict()
         for word in words:
