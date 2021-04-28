@@ -6,7 +6,7 @@ class Solution:
         left, right = 2, num // 2
 
         while left <= right:
-            mid = (right + left) // 2
+            mid = left + (right - left) // 2
             guess_squared = mid * mid
             if guess_squared == num:
                 return True
