@@ -1,3 +1,18 @@
+def find_max(lst):
+    if not lst or not isinstance(lst, list):
+        print('lst is empty or type is not list')
+        return None
+
+    for index, item in enumerate(lst):
+        if item > lst[index + 1]:
+            return item
+
+
+lst = [1, 3, 6, 8, 5, 3, 2]
+max_value = find_max(lst)
+print(max_value)
+
+
 def find_max_num(arr):
     length = len(arr)
     if length == 0:
